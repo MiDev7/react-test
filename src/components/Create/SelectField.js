@@ -1,16 +1,17 @@
 import React from "react";
 import { Field, useFormikContext } from "formik";
-import TextField from "./styled/TextField";
+import OptionField from "./styled/OptionField";
 import ErrorMessage from "./styled/ErrorMessage";
 import { Box } from "../styled";
 
-const FormField = ({ name, placeholder }) => {
+const SelectField = ({ name, placeholder, ...rest }) => {
   const { errors, touched } = useFormikContext();
   return (
     <Box marginBottom="md">
       <Field name={name}>
         {({ field, meta }) => (
-          <TextField
+          <OptionField
+            {...rest}
             data-cy={`${name}Input`}
             fontSize="lg"
             placeholder={placeholder}
@@ -29,4 +30,4 @@ const FormField = ({ name, placeholder }) => {
   );
 };
 
-export default FormField;
+export default SelectField;
