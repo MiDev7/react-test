@@ -4,7 +4,6 @@ import { Button, Box, Flex, Header } from "../styled";
 
 const Overview = () => {
   const history = useHistory();
-
   return (
     <>
       <Header data-cy="header">My Employees</Header>

@@ -1,4 +1,4 @@
-import React, { useCallback } from "react";
+import React from "react";
 import { Formik } from "formik";
 import { useDispatch } from "react-redux";
 import { Flex, Header } from "../styled";
@@ -11,12 +11,13 @@ import { saveNewEmployee } from "../../redux/employees/actionCreators";
 
 const Create = () => {
   const dispatch = useDispatch();
-  const submitForm = useCallback(
-    employee => {
-      dispatch(saveNewEmployee(employee));
-    },
-    [dispatch]
-  );
+  const submitForm = (employee, props) => {
+    dispatch(saveNewEmployee(employee));
+    props.setSubmitting(false);
+    setTimeout(() => {
+      props.resetForm();
+    }, 2000);
+  };
   return (
     <>
       <Header>Create new employee</Header>

@@ -14,7 +14,7 @@
   "rules": {
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
     "no-param-reassign": [
-      "error",
+      "warn",
       { "props": true, "ignorePropertyModificationsFor": ["draftState"] }
     ],
     "react/prop-types": "off",

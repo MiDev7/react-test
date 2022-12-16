@@ -1,6 +1,15 @@
 import styled from "styled-components";
+import { useLocation } from "react-router-dom";
 import theme from "./defaultTheme";
 
+const GetLocation = () => {
+  const location = useLocation();
+  const currentLocation = location.pathname;
+  if (currentLocation === "/" || currentLocation === "/create") {
+    return "600px";
+  }
+  return "80%";
+};
 const AppWrapper = styled.div`
   margin-left: auto;
   margin-right: auto;
@@ -8,7 +17,7 @@ const AppWrapper = styled.div`
   padding-bottom: ${theme.spacings.md};
   display: block;
   background-color: #ffffff;
-  width: 600px;
+  width: ${GetLocation};
   border-radius: 10px;
   position: relative;
   top: 50%;
