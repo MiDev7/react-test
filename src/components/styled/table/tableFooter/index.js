@@ -18,6 +18,7 @@ const TableFooter = ({ range, setPage, page, slice }) => {
             page === el ? styles.activeButton : styles.inactiveButton
           }`}
           onClick={() => setPage(el)}
+          data-cy={`page${el}`}
         >
           {el}
         </button>

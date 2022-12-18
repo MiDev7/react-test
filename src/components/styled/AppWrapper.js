@@ -6,7 +6,7 @@ const GetLocation = () => {
   const location = useLocation();
   const currentLocation = location.pathname;
   if (currentLocation === "/view") {
-    return "90%";
+    return "auto";
   }
   return "600px";
 };
