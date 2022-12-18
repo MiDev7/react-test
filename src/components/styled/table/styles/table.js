@@ -1,9 +1,7 @@
 /* eslint-disable no-alert *//* eslint-disable */
 import styled from 'styled-components';
+import theme from "../../defaultTheme";
 
-const color = {
-    primary: '#4abd78'
-}
 
 export const StyledTable = styled.table`
     border-radius: 10px 10px 0px 0px ;
@@ -16,9 +14,8 @@ export const StyledTable = styled.table`
 `;
 
 export const THead = styled.thead`
-  background-color: ${color.primary} ;
-  
-  color: #f7f7f7
+  background-color: ${theme.colors.primary} ;
+  color: ${theme.colors.background}
 `;
 
 export const TFoot = styled.tfoot`
@@ -31,7 +28,7 @@ export const TBody = styled.tbody`
     }
 
     & > TR:active {
-        color: ${color.primary};
+        color: ${theme.colors.primary};
     }
 `;
 
@@ -42,15 +39,15 @@ export const TR = styled.tr`
         background-color: #f8f8f8;
     }
     &:last-of-type {
-        border-bottom: 3px solid ${color.primary};
+        border-bottom: 3px solid ${theme.colors.primary};
     }
 `;
 
 export const TH = styled.th`
-    padding: 20px 25px;
+    padding: 15px 15px;
     text-align: center;
 `;
 
 export const TD = styled.td`
-    padding: 20px 25px;
+    padding: 15px 15px;
 `;

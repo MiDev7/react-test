@@ -45,8 +45,8 @@ export default {
     text: "#ffffff",
     secondaryBackground: "#a7a7a7",
     secondaryText: "#ffffff",
-    success: "#8ACC3F",
-    danger: "#FF4E4E",
+    success: "#40b02c",
+    danger: "#cf3638",
   },
   textSizes: {
     xs: "0.8333rem",

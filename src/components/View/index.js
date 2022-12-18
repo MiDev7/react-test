@@ -18,7 +18,7 @@ const View = () => {
         marginTop="lg"
         width="auto"
       >
-        <TableStyled data={data} rowsPerPage={10} />
+        <TableStyled id="table" data={data} rowsPerPage={10} />
         <Box>
           <Button data-cy="backButton" onClick={() => history.push("")}>
             Back

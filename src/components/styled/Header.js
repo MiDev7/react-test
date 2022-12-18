@@ -6,6 +6,7 @@ const Header = styled(Box)`
   display: flex;
   justify-content: center;
   font-size: 30px;
+  font-weight: 700;
   margin-bottom: ${theme.spacings.md};
 `;
 

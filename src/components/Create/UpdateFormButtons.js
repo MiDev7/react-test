@@ -15,7 +15,7 @@ const UpdateFormButtons = () => {
         </Button>
       </Box>
       <Box>
-        <Button data-cy="saveButton" onClick={handleSubmit} type="submit">
+        <Button data-cy="updateButton" onClick={handleSubmit} type="submit">
           Update
         </Button>
       </Box>

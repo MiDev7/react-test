@@ -34,7 +34,6 @@ const employeeSlice = createSlice({
     updateEmployee: (state, action) => {
       state.employees_records.map(user => { // eslint-disable-line
         if (user.id === parseInt(action.payload.id, 10)) {
-          alert("updated");// eslint-disable-line
           if (user.firstName !== action.payload.firstName) {
             user.firstName = action.payload.firstName;
           }

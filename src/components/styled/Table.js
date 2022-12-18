@@ -8,6 +8,7 @@ import { Button } from "./table/button";
 import TableFooter from "./table/tableFooter/index";
 import useTable from "./table/useTable";
 import { deleteEmployee } from "../../redux/employees";
+import theme from "./defaultTheme";
 
 const TableStyled = ({ data, rowsPerPage }) => {
   const dispatch = useDispatch();
@@ -48,12 +49,16 @@ const TableStyled = ({ data, rowsPerPage }) => {
               <Table.TD>
                 <Button
                   onClick={() => handleDelete(detail)}
-                  backgroundColor="#cf3638"
+                  backgroundColor={theme.buttons.danger}
                 >
                   <FontAwesomeIcon style={iconStyle} icon={faTrash} />
                   Delete
                 </Button>
-                <Button onClick={() => history.push(`/${detail.id}`)}>
+                <Button
+                  data-cy="edit"
+                  onClick={() => history.push(`/${detail.id}`)}
+                  backgroundColor={theme.buttons.success}
+                >
                   <FontAwesomeIcon style={iconStyle} icon={faPen} />
                   Edit
                 </Button>

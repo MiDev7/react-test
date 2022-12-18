@@ -5,10 +5,10 @@ import theme from "./defaultTheme";
 const GetLocation = () => {
   const location = useLocation();
   const currentLocation = location.pathname;
-  if (currentLocation === "/" || currentLocation === "/create") {
-    return "600px";
+  if (currentLocation === "/view") {
+    return "90%";
   }
-  return "80%";
+  return "600px";
 };
 const AppWrapper = styled.div`
   margin-left: auto;
