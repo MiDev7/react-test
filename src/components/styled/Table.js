@@ -30,7 +30,7 @@ const TableStyled = ({ data, rowsPerPage }) => {
             <Table.TH>First Name</Table.TH>
             <Table.TH>Surname</Table.TH>
             <Table.TH>Email</Table.TH>
-            <Table.TH>birth_date</Table.TH>
+            <Table.TH>Birth Date</Table.TH>
             <Table.TH>Job Title</Table.TH>
             <Table.TH>Status</Table.TH>
             <Table.TH>Actions</Table.TH>
