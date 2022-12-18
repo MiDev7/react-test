@@ -7,8 +7,7 @@ import TableStyled from "../styled/Table";
 
 const View = () => {
   const history = useHistory();
-  const data = useSelector(state => state?.employees.employees_records);
-  console.log(data);
+  const data = useSelector(state => state.employees.employees_records);
   return (
     <>
       <Header data-cy="header">View Employees</Header>
@@ -21,7 +20,7 @@ const View = () => {
       >
         <TableStyled data={data} rowsPerPage={10} />
         <Box>
-          <Button data-cy="backButton" onClick={() => history.goBack()}>
+          <Button data-cy="backButton" onClick={() => history.push("")}>
             Back
           </Button>
         </Box>

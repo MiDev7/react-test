@@ -11,6 +11,7 @@ const calculateRange = (data, rowsPerPage) => {
 };
   
 const sliceData = (data, page, rowsPerPage) => {
+    console.log(data)
     return data.slice((page - 1) * rowsPerPage, page * rowsPerPage);
 };
 

@@ -1,26 +1,27 @@
-/* eslint-disable no-alert *//* eslint-disable */
-import { useState } from "react";
+import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
+import { useDispatch } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash, faPen } from "@fortawesome/free-solid-svg-icons";
 import { Table } from "./table/index";
 import { Button } from "./table/button";
 import TableFooter from "./table/tableFooter/index";
 import useTable from "./table/useTable";
+import { deleteEmployee } from "../../redux/employees";
 
-function TableStyled({ data, rowsPerPage }) {
+const TableStyled = ({ data, rowsPerPage }) => {
+  const dispatch = useDispatch();
+  const history = useHistory();
   const iconStyle = {
     marginRight: "7px",
   };
-  const [mockDataJson, setMockData] = useState(data);
   const [page, setPage] = useState(1);
-  const { slice, range } = useTable(mockDataJson, page, rowsPerPage);
-  function handleDelete(id) {
-    const newMockData = mockDataJson.filter(item => item.id !== id);
-    setMockData(newMockData);
+  const { slice, range } = useTable(data, page, rowsPerPage);
+  function handleDelete(employee) {
+    dispatch(deleteEmployee(employee));
   }
   return (
     <>
-      <h1>TABLE</h1>
       <Table>
         <Table.Head>
           <Table.TR>
@@ -35,29 +36,35 @@ function TableStyled({ data, rowsPerPage }) {
           </Table.TR>
         </Table.Head>
         <Table.Body>
-          {
-            slice.map(( detail )=> 
-              <Table.TR key={detail.id}>
-                <Table.TD>{detail.id}</Table.TD>
-                <Table.TD>{detail.firstName}</Table.TD>
-                <Table.TD>{detail.surname}</Table.TD>
-                <Table.TD>{detail.email}</Table.TD>
-                <Table.TD>{detail.birthDate}</Table.TD>
-                <Table.TD>{detail.jobTitle}</Table.TD>
-                <Table.TD>{detail.status}</Table.TD>
-                <Table.TD>
-                  <Button onClick={() => handleDelete(detail.id)} backgroundColor="#cf3638"><FontAwesomeIcon style={iconStyle} icon={faTrash}/>Delete</Button>
-                  <Button ><FontAwesomeIcon style={iconStyle} icon={faPen} />Edit</Button>
-                </Table.TD>
-              </Table.TR>
-            )
-          }
+          {slice.map(detail => (
+            <Table.TR key={detail.id}>
+              <Table.TD>{detail.id}</Table.TD>
+              <Table.TD>{detail.firstName}</Table.TD>
+              <Table.TD>{detail.surname}</Table.TD>
+              <Table.TD>{detail.email}</Table.TD>
+              <Table.TD>{detail.birthDate}</Table.TD>
+              <Table.TD>{detail.jobTitle}</Table.TD>
+              <Table.TD>{detail.status}</Table.TD>
+              <Table.TD>
+                <Button
+                  onClick={() => handleDelete(detail)}
+                  backgroundColor="#cf3638"
+                >
+                  <FontAwesomeIcon style={iconStyle} icon={faTrash} />
+                  Delete
+                </Button>
+                <Button onClick={() => history.push(`/${detail.id}`)}>
+                  <FontAwesomeIcon style={iconStyle} icon={faPen} />
+                  Edit
+                </Button>
+              </Table.TD>
+            </Table.TR>
+          ))}
         </Table.Body>
-      </Table> 
-      <TableFooter range={range} slice={slice} setPage={setPage} page={page}/>
+      </Table>
+      <TableFooter range={range} slice={slice} setPage={setPage} page={page} />
     </>
-         
   );
-}
+};
 
 export default TableStyled;

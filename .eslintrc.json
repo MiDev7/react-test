@@ -14,7 +14,7 @@
   "rules": {
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
     "no-param-reassign": [
-      "warn",
+      "off",
       { "props": true, "ignorePropertyModificationsFor": ["draftState"] }
     ],
     "react/prop-types": "off",
@@ -43,7 +43,7 @@
       }
     ],
     "comma-dangle": [
-      "error",
+      "warn",
       {
         "arrays": "ignore",
         "objects": "ignore",

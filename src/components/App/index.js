@@ -4,6 +4,7 @@ import WebFont from "webfontloader";
 import Overview from "../Overview";
 import Create from "../Create";
 import View from "../View";
+import Edit from "../Edit";
 import { AppWrapper, GlobalStyle } from "../styled";
 
 WebFont.load({
@@ -19,6 +20,7 @@ const App = () => {
         <Switch>
           <Route path="/create" component={Create} />
           <Route path="/view" component={View} />
+          <Route path="/:id" component={Edit} />
           <Route path="/" component={Overview} />
         </Switch>
       </AppWrapper>
